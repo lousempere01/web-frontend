@@ -1,0 +1,186 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Diaries</title>
+    <link rel="shortcut icon" href="logo.jpeg" />
+
+    <!-- font awesome icons cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <!-- swiper slider css file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.css"
+      integrity="sha512-m3pAvNriL711NMlhkZHK6K4Tu2/RjtrzyjxZU8mlAbxxoDoURy27KajN1LGTLeEEPvaN12mKAgSCrYEwF9y0jA=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" />
+  </head>
+  <body>
+    <!-- .Header -->
+    <header id="header" class="shadow bg-light">
+      <nav class="container navbar">
+        <a href="/index.html" class="nav-brand text-dark"> Daily Diaries </a>
+
+        <!-- toggle button -->
+        <button class="toggle-button">
+          <span><i class="fas fa-bars"></i></span>
+        </button>
+
+        <!-- collapse on toggle button click -->
+        <div class="collapse">
+          <ul class="navbar-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Pages</a>
+            <a href="" class="nav-link">Categories</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a class="nav-link btnLogin-popup">Login</a>
+          </ul>
+        </div>
+
+        <!-- collapse on toggle button click -->
+        <div class="collapse">
+          <ul class="navbar-nav">
+            <div class="search-box">
+              <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+            </div>
+            <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="nav-link"><i class="fab fa-instagram"></i></a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Popup  -->
+    <div class="wrapper">
+      <div id="btn-area">
+        <div id="btn-direction">
+          <span class="close-btn">
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Login  -->
+
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#" id="loginForm">
+          <div class="input-box">
+            <span class="icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input type="email" id="emailLogin" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input type="password" id="passwordLogin" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forgot Password</a>
+          </div>
+          <button type="submit" class="btn" id="btnLogin">Login</button>
+          <div class="login-registrer">
+            <p>
+              Don't have an account ?
+              <a href="#" class="register-link">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Register  -->
+
+      <div class="form-box registrer">
+        <h2>Registration</h2>
+        <form action="#" id="RegisterForm">
+          <div class="input-box">
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <input type="text" id="usernameRegister" required />
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input type="email" id="emailRegister" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input type="password" id="passwordRegister" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label
+              ><input type="checkbox" />I agree to the terms & conditions</label
+            >
+          </div>
+          <button type="submit" class="btn" id="btnRegister">Register</button>
+          <div class="login-registrer">
+            <p>
+              Already have an account ?
+              <a href="#" class="login-link">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <form>
+      <h1>Contactez-nous</h1>
+      <div class="separation"></div>
+      <div class="corps-formulaire">
+        <div class="gauche">
+          <div class="groupe">
+            <label>Votre Prénom</label>
+            <input type="text" required />
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="groupe">
+            <label>Votre adresse e-mail</label>
+            <input type="email" required />
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="groupe">
+            <label>Votre téléphone</label>
+            <input type="text" required />
+            <i class="fas fa-mobile"></i>
+          </div>
+        </div>
+
+        <div class="droite">
+          <div class="groupe">
+            <label>Message</label>
+            <textarea placeholder="Saisissez ici..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="pied-formulaire" align="center">
+        <button>Envoyer le message</button>
+      </div>
+    </form>
+
+    <!-- custom javascript main.js file -->
+    <script src="main.js"></script>
+  </body>
+</html>
