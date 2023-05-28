@@ -6,6 +6,7 @@ const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin-popup");
 const iconClose = document.querySelector(".close-btn");
+const btnLogout = document.querySelector(".btnLogout");
 
 registerLink.addEventListener("click", () => {
   wrapper.classList.add("active");
@@ -27,6 +28,19 @@ iconClose.addEventListener("click", () => {
   wrapper.classList.remove("active-popup");
   wrapper.classList.remove("active");
 });
+
+//simulate user login state
+const userLoggedIn = true;
+if (userLoggedIn) {
+  // create the logout button element
+  btnLogout = document.createElement("a");
+  btnLogout.href = "index.html";
+  btnLogout.classList.add("nav-link", "btnLogout");
+  btnLogout.textContent = "Logout";
+
+  // replace the login button with the logout button
+  btnPopup.replaceWith(btnLogout);
+}
 
 toggle.addEventListener("click", function () {
   collapse.forEach((col) => col.classList.toggle("collapse-toggle"));
@@ -106,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(email);
     console.log(password);
     /*
-    fetch("http://localhost:3000/login", {
+    fetch("https://daily-diaries-server.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -125,13 +139,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((err) => console.log(err));
   });*/
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://daily-diaries-server.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       console.log(data);
       if (response.ok) {
@@ -165,13 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(formData);
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://daily-diaries-server.onrender.com/api/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       console.log(data);
       if (response.ok) {
@@ -204,13 +224,16 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(formData);
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://daily-diaries-server.onrender.com/api/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       console.log(data);
       if (response.ok) {
@@ -253,3 +276,5 @@ logoutButton.addEventListener("click", async function () {
     console.log("erreur");
   }
 });
+
+// Deconnexion
