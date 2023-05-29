@@ -31,9 +31,9 @@ iconClose.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
 
-addPageBtn.addEventListener("click", () => {
-  window.location.href = "addPage.html";
-});
+// addPageBtn.addEventListener("click", () => {
+//   window.location.href = "addPage.html";
+// });
 // //simulate user login state
 // const userLoggedIn = true;
 // if (userLoggedIn) {
