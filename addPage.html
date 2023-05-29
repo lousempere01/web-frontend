@@ -22,7 +22,7 @@
     />
 
     <!-- custom style.css file -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="addPage.css" />
   </head>
   <body>
     <!-- Header -->
@@ -40,7 +40,7 @@
           <ul class="navbar-nav">
             <a href="index.html" class="nav-link">Home</a>
             <a href="pages.html" class="nav-link">Pages</a>
-            <a href="Categories.html" class="nav-link">Categories</a>
+            <a href="categories.html" class="nav-link">Categories</a>
             <a href="contact.html" class="nav-link">Contact</a>
             <a class="nav-link btnLogin-popup">Login</a>
           </ul>
@@ -137,6 +137,55 @@
     </div>
 
     <!-- .Header -->
+
+    <!-- Form -->
+    <form id="addPage">
+      <div class="form-title">
+        <label for="title">Title</label>
+        <input type="text" id="titlepage" class="title-input" />
+      </div>
+
+      <div class="form-contenu">
+        <label for="content">It's time to write</label>
+        <textarea
+          id="content"
+          class="content-input"
+          rows="10"
+          cols="50"
+        ></textarea>
+      </div>
+
+      <div class="form-image">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          class="image-input"
+          accept="image/jpeg, image/png, image/jpg"
+        />
+      </div>
+
+      <div class="form-categories">
+        <label for="categories">Categories</label>
+        <select id="categories" class="categories-select">
+          <option value="category1">Gossip</option>
+          <option value="category2">Life</option>
+          <option value="category3">Study</option>
+          <!-- Ajoutez d'autres options selon vos besoins -->
+        </select>
+      </div>
+
+      <button type="submit">Soumettre</button>
+    </form>
+
+    <style>
+      .title-input,
+      .content-input {
+        width: 100%;
+      }
+    </style>
+    <!-- Form -->
+
     <!-- custom javascript main.js file -->
     <script src="main.js"></script>
   </body>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
 :root {
   --light: #f8f9fa;
   --secondary: #adb5bd;
@@ -11,6 +13,18 @@ body {
   font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
+}
+
+form body {
+  margin: 15px;
+  padding: 0px;
+  background-color: var(--light);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 a {
@@ -172,7 +186,31 @@ a {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-/* section styling */
+form {
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  border-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form h1 {
+  font-size: 20px;
+  text-align: center;
+}
+form .separation {
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary-color);
+}
+form .corps-formulaire {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
 
 /* ------- Navigation Menu ---------- */
 .navbar {
@@ -226,8 +264,7 @@ a {
   outline: none;
 }
 
-/* ------- .Navigation Menu ---------- */
-/* ----------- Login ------- */
+/* ------- Login ---------- */
 
 .wrapper {
   position: absolute;
@@ -357,6 +394,29 @@ a {
   line-height: 57px;
 }
 
+.remember-forgot {
+  font-size: 0.9em;
+  color: var(--dark);
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #f15bb5;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
 .btn {
   width: 100%;
   height: 45px;
@@ -369,7 +429,7 @@ a {
   font-weight: 500;
 }
 
-.login-register {
+.login-registrer {
   font-size: 0.9em;
   color: var(--dark);
   text-align: center;
@@ -377,45 +437,109 @@ a {
   margin: 25px 0 10px;
 }
 
-.login-register p a {
+.login-registrer p a {
   text-decoration: none;
   color: var(--primary-color);
   font-weight: 600;
 }
 
-.login-register p a:hover {
+.login-registrer p a:hover {
   text-decoration: underline;
 }
 
-.deconnexion {
-  height: 8vh;
-  width: 100vw;
-  margin-top: 11vh;
-  background-color: rgb(0, 0, 0);
-  justify-content: center;
-  display: flex;
-}
-/* AddPages */
+/* ----------- sticky ------- */
 
-.NewPage {
-  height: 8vh;
-  width: 100vw;
-  margin-top: 11vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
 }
 
-.addButon {
-  font-family: "Bebas Neue", cursive;
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* body {
+  margin: 0;
+  padding: 0;
+} */
+
+/* .navbar {
+  width: 100%;
   background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: var(--light);
+  padding: 10px;
+} */
+
+#addPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 40px); /* Soustraire la hauteur de la navbar */
+  margin-top: 40px; /* Espace au-dessus du formulaire pour la navbar */
 }
-.addButon:hover {
+
+#addPage .form-title,
+#addPage .form-contenu,
+#addPage .form-image,
+#addPage .form-categories {
+  margin-bottom: 20px;
+}
+
+#addPage .form-title label,
+#addPage .form-contenu label,
+#addPage .form-image label,
+#addPage .form-categories label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#addPage .form-title input,
+#addPage .form-contenu textarea,
+#addPage .form-image input,
+#addPage .form-categories select {
+  width: 300px;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary);
+  resize: none;
+}
+
+#addPage button[type="submit"] {
+  padding: 10px 20px;
   background-color: var(--secondary-color);
+  color: var(--light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#addPage button[type="submit"]:hover {
+  background-color: #1f9bcf;
+}
+#addPage .form-contenu textarea {
+  width: 842px;
+  height: 300px;
+}
+
+#addPage .form-title input {
+  width: 842px;
+}
+
+#addPage .form-image input {
+  width: 842px;
+}
+
+#addPage .form-categories select {
+  width: 842px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  outline-color: var(--primary-color);
 }
