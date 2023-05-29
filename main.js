@@ -6,7 +6,7 @@ const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin-popup");
 const iconClose = document.querySelector(".close-btn");
-const addPageBtn = document.querySelector("#addPageBtn");
+// const addPageBtn = document.querySelector("#addPageBtn");
 
 // const btnLogout = document.querySelector(".btnLogout");
 
