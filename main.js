@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
-    alert("Vous êtes connecté");
+    alert("You're connected");
     const formData = {
       email: emailLogin.value,
       password: passwordLogin.value,
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
-    alert("Votre compte est crée");
+    alert("account created");
     const formData = {
       username: usernameRegister.value,
       email: emailRegister.value,
@@ -207,25 +207,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Send to server contact form
 document.addEventListener("DOMContentLoaded", () => {
-  const formRegister = document.querySelector("#RegisterForm");
-  const usernameRegister = document.querySelector("#usernameRegister");
-  const emailRegister = document.querySelector("#emailRegister");
-  const passwordRegister = document.querySelector("#passwordRegister");
-  const btnRegister = document.querySelector("#btnRegister");
+  const nameContact = document.querySelector("#nameContact");
+  const mailContact = document.querySelector("#mailContact");
+  const phoneContact = document.querySelector("#phoneContact");
+  const messageContact = document.querySelector("#messageContact");
+  const btnSend = document.querySelector("#btnSend");
 
   formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
-    alert("Votre compte est crée");
+    alert("Message send");
     const formData = {
-      username: usernameRegister.value,
-      email: emailRegister.value,
-      password: passwordRegister.value,
+      name: nameContact.value,
+      email: mailContact.value,
+      phone: phoneContact.value,
+      message: messageContact.value,
     };
     console.log(formData);
 
     try {
       const response = await fetch(
-        "https://daily-diaries-server.onrender.com/api/auth/signup",
+        "https://daily-diaries-server.onrender.com/api/contact/",
         {
           method: "POST",
           headers: {
@@ -249,32 +250,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Deconnexion
 
-const logoutButton = document.getElementById("logoutButton");
-logoutButton.addEventListener("click", async function () {
-  const token = localStorage.getItem("accessToken");
-  console.log(token);
-  try {
-    const response = await fetch("https://localhost:3000/api/auth/logout", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+// const logoutButton = document.getElementById("logoutButton");
+// logoutButton.addEventListener("click", async function () {
+//   const token = localStorage.getItem("accessToken");
+//   console.log(token);
+//   try {
+//     const response = await fetch("https://localhost:3000/api/auth/logout", {
+//       method: "POST",
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//         "Content-Type": "application/json",
+//       },
+//     });
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log("data", data);
-      localStorage.removeItem("accessToken"); // Supprimer l'accessToken du localStorage
-      localStorage.removeItem("loggedIn"); // Réinitialiser le statut de connexion
-      window.location.href = "index.html"; // Rediriger vers la page de connexion
-    } else {
-      console.log("La demande de déconnexion a échoué.");
-    }
-  } catch (error) {
-    console.log(error);
-    console.log("erreur");
-  }
-});
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log("data", data);
+//       localStorage.removeItem("accessToken"); // Supprimer l'accessToken du localStorage
+//       localStorage.removeItem("loggedIn"); // Réinitialiser le statut de connexion
+//       window.location.href = "index.html"; // Rediriger vers la page de connexion
+//     } else {
+//       console.log("La demande de déconnexion a échoué.");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     console.log("erreur");
+//   }
+// });
 
 // Deconnexion

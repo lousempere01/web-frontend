@@ -39,8 +39,8 @@
         <div class="collapse">
           <ul class="navbar-nav">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Pages</a>
-            <a href="" class="nav-link">Categories</a>
+            <a href="pages.html" class="nav-link">Pages</a>
+            <a href="categories.html" class="nav-link">Categories</a>
             <a href="contact.html" class="nav-link">Contact</a>
             <a class="nav-link btnLogin-popup">Login</a>
           </ul>
@@ -146,23 +146,23 @@
     </div>
 
     <form>
-      <h1>Contactez-nous</h1>
+      <h1>Contact us</h1>
       <div class="separation"></div>
       <div class="corps-formulaire">
         <div class="gauche">
           <div class="groupe">
-            <label>Votre Prénom</label>
-            <input type="text" required />
+            <label>name</label>
+            <input type="text" id="nameContact" required />
             <i class="fas fa-user"></i>
           </div>
           <div class="groupe">
-            <label>Votre adresse e-mail</label>
-            <input type="email" required />
+            <label>email address</label>
+            <input type="email" id="mailContact" required />
             <i class="fas fa-envelope"></i>
           </div>
           <div class="groupe">
-            <label>Votre téléphone</label>
-            <input type="text" required />
+            <label>phone number</label>
+            <input type="text" id="phoneContact" required />
             <i class="fas fa-mobile"></i>
           </div>
         </div>
@@ -170,13 +170,16 @@
         <div class="droite">
           <div class="groupe">
             <label>Message</label>
-            <textarea placeholder="Saisissez ici..."></textarea>
+            <textarea
+              id="messageContact"
+              placeholder="Enter here..."
+            ></textarea>
           </div>
         </div>
       </div>
 
       <div class="pied-formulaire" align="center">
-        <button>Envoyer le message</button>
+        <button type="submit" class="btn" id="btnSend">Send message</button>
       </div>
     </form>
 
