@@ -53,32 +53,32 @@ toggle.addEventListener("click", function () {
 // });
 
 // swiper libray initialization
-new Swiper(".swiper-container", {
-  direction: "horizontal",
-  loop: true,
-  slidesPerView: 5,
-  autoplay: {
-    delay: 3000,
-  },
-  // responsive brakpoints
-  breakpoints: {
-    "@0": {
-      slidesPerView: 2,
-    },
-    // 888px
-    "@1.00": {
-      slidesPerView: 3,
-    },
-    // 1110px
-    "@1.25": {
-      slidesPerView: 4,
-    },
-    // 1330px
-    "@1.50": {
-      slidesPerView: 5,
-    },
-  },
-});
+// new Swiper(".swiper-container", {
+//   direction: "horizontal",
+//   loop: true,
+//   slidesPerView: 5,
+//   autoplay: {
+//     delay: 3000,
+//   },
+//   // responsive brakpoints
+//   breakpoints: {
+//     "@0": {
+//       slidesPerView: 2,
+//     },
+//     // 888px
+//     "@1.00": {
+//       slidesPerView: 3,
+//     },
+//     // 1110px
+//     "@1.25": {
+//       slidesPerView: 4,
+//     },
+//     // 1330px
+//     "@1.50": {
+//       slidesPerView: 5,
+//     },
+//   },
+// });
 
 // Sticky Navigation
 window.onscroll = function () {
@@ -208,48 +208,49 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Send to server contact form
-// document.addEventListener("DOMContentLoaded", () => {
-//   const nameContact = document.querySelector("#nameContact");
-//   const mailContact = document.querySelector("#mailContact");
-//   const phoneContact = document.querySelector("#phoneContact");
-//   const messageContact = document.querySelector("#messageContact");
-//   const btnSend = document.querySelector("#btnSend");
+document.addEventListener("DOMContentLoaded", () => {
+  const contactform = document.querySelector("#contactform");
+  const nameContact = document.querySelector("#nameContact");
+  const mailContact = document.querySelector("#mailContact");
+  const phoneContact = document.querySelector("#phoneContact");
+  const messageContact = document.querySelector("#messageContact");
+  const btnSend = document.querySelector("#btnSend");
 
-//   formRegister.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-//     alert("Message send");
-//     const name = document.getElementById("nameContact").value;
-//     const email = document.getElementById("mailContact").value;
-//     const phone = document.getElementById("phoneContact").value;
-//     const message = document.getElementById("messageContact").value;
-//     console.log(name);
-//     console.log(email);
-//     console.log(phone);
-//     console.log(message);
+  contactform.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    alert("Message send");
+    const formData = {
+      name: nameContact.value,
+      email: mailContact.value,
+      phone: phoneContact.value,
+      message: messageContact.value,
+    };
+    console.log(formData);
 
-//     try {
-//       const response = await fetch(
-//         "https://daily-diaries-server.onrender.com/api/contact/",
-//         {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify(formData),
-//         }
-//       );
-//       const data = await response.json();
-//       console.log(data);
-//       if (response.ok) {
-//         console.log("ok");
-//       } else {
-//         console.log("not ok");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   });
-// });
+    try {
+      const response = await fetch(
+        "https://daily-diaries-server.onrender.com/api/contact/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      if (response.ok) {
+        console.log("ok");
+        window.location.href = "index.html";
+      } else {
+        console.log("not ok");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
+});
 
 // Deconnexion
 
