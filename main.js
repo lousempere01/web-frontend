@@ -270,34 +270,35 @@ boutondeconnexion.addEventListener(
   { passive: true }
 );
 
-// Accès a la page pages.html
-// Middleware de vérification d'authentification
-const authenticateUser = (req, res, next) => {
-  // Récupérer le token d'authentification du header, des cookies ou autre
-  const token = req.headers.authorization;
+// // Accès a la page pages.html
 
-  if (!token) {
-    // Le token est manquant, l'utilisateur n'est pas authentifié
-    return res.status(401).json({ message: "Accès non autorisé." });
-  }
+// // Middleware de vérification d'authentification
+// const authenticateUser = (req, res, next) => {
+//   // Récupérer le token d'authentification du header, des cookies ou autre
+//   const token = req.headers.authorization;
 
-  try {
-    // Vérifier et décoder le token
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+//   if (!token) {
+//     // Le token est manquant, l'utilisateur n'est pas authentifié
+//     return res.status(401).json({ message: "Accès non autorisé." });
+//   }
 
-    // Ajouter les données de l'utilisateur à la requête pour une utilisation ultérieure
-    req.userData = decodedToken;
+//   try {
+//     // Vérifier et décoder le token
+//     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Passer à l'étape suivante
-    next();
-  } catch (error) {
-    // Le token est invalide ou a expiré, l'utilisateur n'est pas authentifié
-    return res.status(401).json({ message: "Accès non autorisé." });
-  }
-};
+//     // Ajouter les données de l'utilisateur à la requête pour une utilisation ultérieure
+//     req.userData = decodedToken;
 
-// Exemple d'utilisation du middleware pour restreindre l'accès à une route
-app.get("/page-restreinte", authenticateUser, (req, res) => {
-  // L'utilisateur est authentifié, il a accès à la page
-  res.json({ message: "Bienvenue sur la page restreinte !" });
-});
+//     // Passer à l'étape suivante
+//     next();
+//   } catch (error) {
+//     // Le token est invalide ou a expiré, l'utilisateur n'est pas authentifié
+//     return res.status(401).json({ message: "Accès non autorisé." });
+//   }
+// };
+
+// // Exemple d'utilisation du middleware pour restreindre l'accès à une route
+// app.get("/page-restreinte", authenticateUser, (req, res) => {
+//   // L'utilisateur est authentifié, il a accès à la page
+//   res.json({ message: "Bienvenue sur la page restreinte !" });
+// });
