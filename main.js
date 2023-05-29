@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         console.log("ok");
         localStorage.setItem("token", data.token);
+        window.location.href = "pages.html";
       } else {
         console.log("not ok");
       }
@@ -207,48 +208,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Send to server contact form
-document.addEventListener("DOMContentLoaded", () => {
-  const nameContact = document.querySelector("#nameContact");
-  const mailContact = document.querySelector("#mailContact");
-  const phoneContact = document.querySelector("#phoneContact");
-  const messageContact = document.querySelector("#messageContact");
-  const btnSend = document.querySelector("#btnSend");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const nameContact = document.querySelector("#nameContact");
+//   const mailContact = document.querySelector("#mailContact");
+//   const phoneContact = document.querySelector("#phoneContact");
+//   const messageContact = document.querySelector("#messageContact");
+//   const btnSend = document.querySelector("#btnSend");
 
-  formRegister.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    alert("Message send");
-    const name = document.getElementById("nameContact").value;
-    const email = document.getElementById("mailContact").value;
-    const phone = document.getElementById("phoneContact").value;
-    const message = document.getElementById("messageContact").value;
-    console.log(name);
-    console.log(email);
-    console.log(phone);
-    console.log(message);
+//   formRegister.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+//     alert("Message send");
+//     const name = document.getElementById("nameContact").value;
+//     const email = document.getElementById("mailContact").value;
+//     const phone = document.getElementById("phoneContact").value;
+//     const message = document.getElementById("messageContact").value;
+//     console.log(name);
+//     console.log(email);
+//     console.log(phone);
+//     console.log(message);
 
-    try {
-      const response = await fetch(
-        "https://daily-diaries-server.onrender.com/api/contact/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-      if (response.ok) {
-        console.log("ok");
-      } else {
-        console.log("not ok");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  });
-});
+//     try {
+//       const response = await fetch(
+//         "https://daily-diaries-server.onrender.com/api/contact/",
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify(formData),
+//         }
+//       );
+//       const data = await response.json();
+//       console.log(data);
+//       if (response.ok) {
+//         console.log("ok");
+//       } else {
+//         console.log("not ok");
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
+// });
 
 // Deconnexion
 
