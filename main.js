@@ -257,18 +257,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Deconnexion
-const boutondeconnexion = document.createElement("a");
-boutondeconnexion.href = "index.html";
-boutondeconnexion.innerText = "Logout";
+// // Deconnexion
+// const boutondeconnexion = document.createElement("a");
+// boutondeconnexion.href = "index.html";
+// boutondeconnexion.innerText = "Logout";
 
-boutondeconnexion.addEventListener(
-  "click",
-  function (event) {
-    localStorage.clear();
-  },
-  { passive: true }
-);
+// boutondeconnexion.addEventListener(
+//   "click",
+//   function (event) {
+//     localStorage.clear();
+//   },
+//   { passive: true }
+// );
 
 // // Accès a la page pages.html
 
