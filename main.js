@@ -6,6 +6,8 @@ const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin-popup");
 const iconClose = document.querySelector(".close-btn");
+const addPageBtn = document.querySelector("#addPageBtn");
+
 // const btnLogout = document.querySelector(".btnLogout");
 
 registerLink.addEventListener("click", () => {
@@ -29,6 +31,9 @@ iconClose.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
 
+addPageBtn.addEventListener("click", () => {
+  window.location.href = "addPage.html";
+});
 // //simulate user login state
 // const userLoggedIn = true;
 // if (userLoggedIn) {
@@ -174,13 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
-    alert("account created");
     const formData = {
       username: usernameRegister.value,
       email: emailRegister.value,
       password: passwordRegister.value,
     };
     console.log(formData);
+    alert("account created");
 
     try {
       const response = await fetch(
@@ -253,33 +258,46 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Deconnexion
+const boutondeconnexion = document.createElement("a");
+boutondeconnexion.href = "index.html";
+boutondeconnexion.innerText = "Logout";
 
-// const logoutButton = document.getElementById("logoutButton");
-// logoutButton.addEventListener("click", async function () {
-//   const token = localStorage.getItem("accessToken");
-//   console.log(token);
-//   try {
-//     const response = await fetch("https://localhost:3000/api/auth/logout", {
-//       method: "POST",
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//         "Content-Type": "application/json",
-//       },
-//     });
+boutondeconnexion.addEventListener(
+  "click",
+  function (event) {
+    localStorage.clear();
+  },
+  { passive: true }
+);
 
-//     if (response.ok) {
-//       const data = await response.json();
-//       console.log("data", data);
-//       localStorage.removeItem("accessToken"); // Supprimer l'accessToken du localStorage
-//       localStorage.removeItem("loggedIn"); // Réinitialiser le statut de connexion
-//       window.location.href = "index.html"; // Rediriger vers la page de connexion
-//     } else {
-//       console.log("La demande de déconnexion a échoué.");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     console.log("erreur");
-//   }
-// });
+// Accès a la page pages.html
+// Middleware de vérification d'authentification
+const authenticateUser = (req, res, next) => {
+  // Récupérer le token d'authentification du header, des cookies ou autre
+  const token = req.headers.authorization;
 
-// Deconnexion
+  if (!token) {
+    // Le token est manquant, l'utilisateur n'est pas authentifié
+    return res.status(401).json({ message: "Accès non autorisé." });
+  }
+
+  try {
+    // Vérifier et décoder le token
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Ajouter les données de l'utilisateur à la requête pour une utilisation ultérieure
+    req.userData = decodedToken;
+
+    // Passer à l'étape suivante
+    next();
+  } catch (error) {
+    // Le token est invalide ou a expiré, l'utilisateur n'est pas authentifié
+    return res.status(401).json({ message: "Accès non autorisé." });
+  }
+};
+
+// Exemple d'utilisation du middleware pour restreindre l'accès à une route
+app.get("/page-restreinte", authenticateUser, (req, res) => {
+  // L'utilisateur est authentifié, il a accès à la page
+  res.json({ message: "Bienvenue sur la page restreinte !" });
+});

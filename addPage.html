@@ -22,7 +22,7 @@
     />
 
     <!-- custom style.css file -->
-    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Header -->
@@ -137,25 +137,7 @@
     </div>
 
     <!-- .Header -->
-
-    <!-- Add page -->
-    <div class="NewPage">
-      <button id="addPagebtn">Add Page</button>
-    </div>
-
-    <!-- custom javascript pages.js file -->
+    <!-- custom javascript main.js file -->
     <script src="main.js"></script>
-    <script src="pages.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Vérifier si l'utilisateur est connecté
-        const isLoggedIn = checkUserLoggedIn(); // Fonction à implémenter selon votre système d'authentification
-
-        if (!isLoggedIn) {
-          // Rediriger l'utilisateur vers une page de connexion
-          window.location.href = "login.html";
-        }
-      });
-    </script>
   </body>
 </html>
