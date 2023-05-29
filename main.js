@@ -6,7 +6,7 @@ const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin-popup");
 const iconClose = document.querySelector(".close-btn");
-const btnLogout = document.querySelector(".btnLogout");
+// const btnLogout = document.querySelector(".btnLogout");
 
 registerLink.addEventListener("click", () => {
   wrapper.classList.add("active");
@@ -29,18 +29,18 @@ iconClose.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
 
-//simulate user login state
-const userLoggedIn = true;
-if (userLoggedIn) {
-  // create the logout button element
-  btnLogout = document.createElement("a");
-  btnLogout.href = "index.html";
-  btnLogout.classList.add("nav-link", "btnLogout");
-  btnLogout.textContent = "Logout";
+// //simulate user login state
+// const userLoggedIn = true;
+// if (userLoggedIn) {
+//   // create the logout button element
+//   btnLogout = document.createElement("a");
+//   btnLogout.href = "index.html";
+//   btnLogout.classList.add("nav-link", "btnLogout");
+//   btnLogout.textContent = "Logout";
 
-  // replace the login button with the logout button
-  btnPopup.replaceWith(btnLogout);
-}
+//   // replace the login button with the logout button
+//   btnPopup.replaceWith(btnLogout);
+// }
 
 toggle.addEventListener("click", function () {
   collapse.forEach((col) => col.classList.toggle("collapse-toggle"));
@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(data);
       if (response.ok) {
         console.log("ok");
+        window.location.href = "pages.html";
       } else {
         console.log("not ok");
       }
@@ -216,13 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
   formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
     alert("Message send");
-    const formData = {
-      name: nameContact.value,
-      email: mailContact.value,
-      phone: phoneContact.value,
-      message: messageContact.value,
-    };
-    console.log(formData);
+    const name = document.getElementById("nameContact").value;
+    const email = document.getElementById("mailContact").value;
+    const phone = document.getElementById("phoneContact").value;
+    const message = document.getElementById("messageContact").value;
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(message);
 
     try {
       const response = await fetch(
