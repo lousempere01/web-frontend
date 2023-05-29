@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        "https://daily-diaries-server.onrender.com/api/contact/",
+        "https://daily-diaries-server.onrender.com/api/contact",
         {
           method: "POST",
           headers: {
