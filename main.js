@@ -347,3 +347,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// // Get all pages
+// async function fetchUserData() {
+//   try {
+//     const idme = await getCurrentUser();
+//     console.log(idme);
+
+//     const response = await fetch(
+//       `https://daily-diaries-server.onrender.com/api/pages/${idme}`,
+//       {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+
+//     console.log(response);
+//     const data = await response.json();
+//     console.log(data);
+
+//     const pagesContainer = document.querySelector(".pages-container");
+
+//     data.experiences.forEach((experience) => {
+//       const experienceElement = createExperienceElement(experience);
+//       experiencesContainer.appendChild(experienceElement);
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
