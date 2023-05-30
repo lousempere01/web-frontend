@@ -478,7 +478,7 @@ form .corps-formulaire {
   align-items: center;
   justify-content: center;
   height: calc(100vh - 40px); /* Soustraire la hauteur de la navbar */
-  margin-top: 40px; /* Espace au-dessus du formulaire pour la navbar */
+  padding-top: 80px; /* Espace supplémentaire au-dessus du formulaire pour la navbar */
 }
 
 #addPage .form-title,
@@ -520,19 +520,18 @@ form .corps-formulaire {
 #addPage button[type="submit"]:hover {
   background-color: #1f9bcf;
 }
+
 #addPage .form-contenu textarea {
   width: 842px;
-  height: 300px;
+  height: 100px;
 }
 
-#addPage .form-title input {
+#addPage .form-title input,
+#addPage .form-contenu textarea {
   width: 842px;
 }
 
-#addPage .form-image input {
-  width: 842px;
-}
-
+#addPage .form-image input,
 #addPage .form-categories select {
   width: 842px;
 }
