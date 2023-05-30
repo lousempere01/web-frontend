@@ -479,6 +479,7 @@ form .corps-formulaire {
   justify-content: center;
   height: calc(100vh - 40px); /* Soustraire la hauteur de la navbar */
   padding-top: 80px; /* Espace supplémentaire au-dessus du formulaire pour la navbar */
+  border: none;
 }
 
 #addPage .form-title,
